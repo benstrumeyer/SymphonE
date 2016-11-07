@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["dom", "scripthost", "es5", "es2015"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true
+  },
+  "include": [
+    "scripts/**/*.ts"
+  ],
+  "typeRoots": [ "../../node_modules/@types/" ]
+
+}

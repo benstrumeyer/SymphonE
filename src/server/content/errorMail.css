@@ -1,0 +1,72 @@
+*
+{
+    font-family: Ubuntu, Tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    text-shadow: rgba(0, 0, 0, 0.0980392) 0 0 1px;
+}
+h3
+{
+    border-bottom: 1px solid rgb(238, 238, 238);
+    font-size: 24px;
+    margin: 40px 0 0;
+    padding: 0 0 9px;
+}
+#container
+{
+    color: rgb(51, 51, 51);
+    text-shadow: rgba(0, 0, 0, 0.0980392) 0 0 1px;
+    outline: rgb(51, 51, 51) none 0;
+    padding: 0 15px;
+}
+#error
+{
+    border: 0 none rgb(51, 51, 51);
+    outline: rgb(51, 51, 51) none 0;
+}
+#error_message
+{
+    color: rgb(200, 0, 0);
+    border-bottom: 1px solid rgb(238, 238, 238);
+    margin: 0;
+    padding: 10px;
+    font-style: italic;
+}
+#error_stack
+{
+    color: rgb(102, 0, 0);
+    background: #fee;
+    font-size: 110%;
+    padding: 15px 30px;
+}
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0 0;
+    margin: 0 0 20px;
+    width: 100%;
+}
+tr, th
+{
+    border-collapse: collapse;
+    text-align: left;
+    vertical-align: middle;
+}
+td, th
+{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+th
+{
+    width: 30%;
+    font-weight: bold;
+    padding: 5px;
+}
+td
+{
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 5px;
+}

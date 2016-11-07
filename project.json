@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "name": "Project Snowflake",
+    "project": "project-snowflake",
+    "version": "0.0.1",
+    "description": "",
+    "copyright": "Copyright \u00A9 2016",
+    "author": {
+      "name": "cypherix93",
+      "url": "https://github.com/cypherix93"
+    }
+  },
+  "config": {
+    "ports": {
+      "client": 7300,
+      "server": 7350
+    }
+  }
+}
