@@ -1,0 +1,211 @@
+.toast-title
+{
+    font-weight: bold;
+}
+.toast-message
+{
+    word-wrap: break-word;
+}
+.toast-message a,
+.toast-message label
+{
+    color: #FFFFFF;
+}
+.toast-message a:hover
+{
+    color: #CCCCCC;
+    text-decoration: none;
+}
+.toast-close-button
+{
+    position: relative;
+    right: -0.3em;
+    top: -0.3em;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.8;
+}
+.toast-close-button:hover,
+.toast-close-button:focus
+{
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.4;
+}
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button
+{
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+.toast-top-center
+{
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-bottom-center
+{
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-top-full-width
+{
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-bottom-full-width
+{
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+.toast-top-left
+{
+    top: 12px;
+    left: 12px;
+}
+.toast-top-right
+{
+    top: 12px;
+    right: 12px;
+}
+.toast-bottom-right
+{
+    right: 12px;
+    bottom: 12px;
+}
+.toast-bottom-left
+{
+    bottom: 12px;
+    left: 12px;
+}
+#toast-container
+{
+    position: fixed;
+    z-index: 99999;
+
+    &.toast-top-center,
+    &.toast-bottom-center
+    {
+        .toast
+        {
+            display: table;
+            width: auto;
+            min-width: 200px;
+            max-width: 800px;
+            margin: 8px auto;
+
+            text-align: center;
+        }
+    }
+    &.toast-top-full-width,
+    &.toast-bottom-full-width
+    {
+        .toast
+        {
+            display: block;
+            width: 96%;
+            margin: auto;
+
+            text-align: center;
+        }
+    }
+
+    .toast
+    {
+        background: transparentize($gray-base, 0.2);
+        font-weight: bold;
+
+        position: relative;
+        overflow: hidden;
+        margin: 0 0 8px;
+        padding: 15px 30px;
+        border-radius: 4px;
+        opacity: 0;
+
+        transition: opacity ease 0.25s, margin ease 0.25s;
+
+        &:hover
+        {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    .toast-success
+    {
+        background: $state-success-bg;
+        color: $state-success-text;
+        box-shadow: $state-success-border 0 0 6px;
+    }
+    .toast-error
+    {
+        background: $state-danger-bg;
+        color: $state-danger-text;
+        box-shadow: $state-danger-border 0 0 6px;
+    }
+    .toast-info
+    {
+        background: $state-info-bg;
+        color: $state-info-text;
+        box-shadow: $state-info-border 0 0 6px;
+    }
+    .toast-warning
+    {
+        background: $state-warning-bg;
+        color: $state-warning-text;
+        box-shadow: $state-warning-border 0 0 6px;
+    }
+    .toast-progress
+    {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        background-color: #000000;
+        opacity: 0.4;
+    }
+}
+/*Responsive Design*/
+@media all and (max-width: 240px) {
+    #toast-container > div
+    {
+        padding: 8px 8px 8px 50px;
+        width: 11em;
+    }
+    #toast-container .toast-close-button
+    {
+        right: -0.2em;
+        top: -0.2em;
+    }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+    #toast-container > div
+    {
+        padding: 8px 8px 8px 50px;
+        width: 18em;
+    }
+    #toast-container .toast-close-button
+    {
+        right: -0.2em;
+        top: -0.2em;
+    }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+    #toast-container > div
+    {
+        padding: 15px 15px 15px 50px;
+        width: 25em;
+    }
+}

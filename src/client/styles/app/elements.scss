@@ -1,0 +1,136 @@
+﻿/*
+    Global General Elements
+--------------------------------------------------- */
+html, body
+{
+    height: 100%;
+    @include text-antialias();
+
+    background: $gray-lighter;
+}
+a
+{
+    cursor: pointer;
+    text-decoration: none !important;
+
+    &:hover
+    {
+        color: lighten(saturate($link-color, 25%), 10%);
+    }
+}
+a, .btn, button
+{
+    @include transitions();
+    outline: none !important;
+}
+[hidden],
+template
+{
+    display: none !important;
+}
+hr
+{
+    float: none;
+    clear: both;
+    margin: 20px 0;
+}
+h1, h2, h3, h4, h5, h6
+{
+    //margin: 0;
+    //text-shadow: $gray-dark 0 0 4px;
+}
+/*
+    Layout Objects
+--------------------------------------------------- */
+#content-container
+{
+    background: white;
+    padding: 80px 0 30px;
+
+    overflow: hidden;
+
+    box-shadow: white 0 0 80px 120px;
+}
+.container-fluid
+{
+    padding: 0;
+}
+@media (min-width: $screen-xs-min) {
+    .container-fluid
+    {
+        padding: 0;
+        margin: 0;
+    }
+}
+@media (min-width: $screen-md-min) {
+    .container-fluid
+    {
+        margin: 0 2.5%;
+    }
+}
+@media (min-width: $screen-lg-min) {
+    .container-fluid
+    {
+        margin: 0 5%;
+    }
+}
+#footer-container
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+/*
+    Form validation classes
+--------------------------------------------------- */
+label.required::after
+{
+    content: " *";
+    color: $brand-danger;
+}
+textarea
+{
+    resize: vertical;
+}
+.has-error .control-label
+{
+    color: $text-color;
+}
+.has-error .control-error
+{
+    color: $brand-danger;
+
+    & > *
+    {
+        display: block;
+    }
+}
+/*
+    Bootstrap Elements
+--------------------------------------------------- */
+.well, .jumbotron
+{
+    background: transparentize($gray-lighter, 0.5);
+}
+/*
+    Custom Classes
+--------------------------------------------------- */
+.border-top-radius-none
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.border-bottom-radius-none
+{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.no-padding
+{
+    padding: 0;
+}
+.no-margin
+{
+    margin: 0;
+}
+

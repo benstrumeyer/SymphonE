@@ -1,0 +1,14 @@
+.sidebar-links
+{
+    .sidebar-link
+    {
+        margin: 0 -5px;
+        padding: 4px 10px;
+        cursor: pointer;
+
+        &:hover
+        {
+            background: transparentize($brand-primary, 0.9);
+        }
+    }
+}
