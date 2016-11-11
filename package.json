@@ -101,7 +101,7 @@
     "streamqueue": "^1.1.1",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
-    "typescript": "^2.1.0-dev.20161006",
+    "typescript": "^2.1.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.0",
     "webpack-node-externals": "^1.4.3"
