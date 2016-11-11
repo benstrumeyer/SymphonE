@@ -1,33 +1,45 @@
+import {IHttpService, IHttpPromiseCallbackArg, IRequestShortcutConfig} from "angular";
+
 import {AngularApp} from "../../../AngularApp";
+import {API_BASE_URL} from "../../config/Constants.config";
+import {IPayload} from "../../models/IPayload";
 
-AngularApp.service("ApiService", function ($http, ConstantsService)
+export class ApiService
 {
-    var self = this;
+    public get: (apiUrl: string, config?: IRequestShortcutConfig) => Promise<IHttpPromiseCallbackArg<IPayload>>;
+    public head: (apiUrl: string, config?: IRequestShortcutConfig) => Promise<IHttpPromiseCallbackArg<IPayload>>;
 
-    var baseUrl = ConstantsService.apiBaseUrl;
+    public post: (apiUrl: string, data: any, config?: IRequestShortcutConfig) => Promise<IHttpPromiseCallbackArg<IPayload>>;
+    public put: (apiUrl: string, data: any, config?: IRequestShortcutConfig) => Promise<IHttpPromiseCallbackArg<IPayload>>;
+    public patch: (apiUrl: string, data: any, config?: IRequestShortcutConfig) => Promise<IHttpPromiseCallbackArg<IPayload>>;
 
-    var bindMethods = function (...methods: string[])
+    constructor(private $http: IHttpService)
+    {
+        this.bindMethods("get", "head");
+        this.bindMethodsWithData("post", "put", "patch");
+    }
+
+    private bindMethods(...methods: string[])
     {
         for (let method of methods)
         {
-            self[method] = function (apiUrl, config)
+            this[method] = function (apiUrl, config)
             {
-                return $http[method](baseUrl + apiUrl, config);
+                return this.$http[method](API_BASE_URL + apiUrl, config);
             };
         }
-    };
+    }
 
-    var bindMethodsWithData = function (...methods: string[])
+    private bindMethodsWithData(...methods: string[])
     {
         for (let method of methods)
         {
-            self[method] = function (apiUrl, data, config)
+            this[method] = function (apiUrl, data, config)
             {
-                return $http[method](baseUrl + apiUrl, data, config);
+                return this.$http[method](API_BASE_URL + apiUrl, data, config);
             };
         }
-    };
+    }
+}
 
-    bindMethods("get", "delete", "head", "jsonp");
-    bindMethodsWithData("post", "put", "patch");
-});
+AngularApp.service("ApiService", ApiService);
