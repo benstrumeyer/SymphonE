@@ -1,13 +1,13 @@
 {
   "meta": {
-    "name": "Project Snowflake",
-    "project": "project-snowflake",
+    "name": "SymphonE",
+    "project": "project-symphone",
     "version": "0.0.1",
     "description": "",
     "copyright": "Copyright \u00A9 2016",
     "author": {
-      "name": "cypherix93",
-      "url": "https://github.com/cypherix93"
+      "name": "benjaminstrumeyer",
+      "url": "https://github.com/benjaminstrumeyer/SymphonE"
     }
   },
   "config": {
