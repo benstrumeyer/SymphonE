@@ -1,0 +1,127 @@
+$min-width-span: (1920/4) + px;
+$min-height-span: (1080/4) + px;
+
+.home-container
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .sidebar-container
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        //min-width: $min-width-span;
+
+        background: white;
+        border-left: $gray 1px solid;
+    }
+    .main-area-container
+    {
+        position: absolute;
+        left: 0;
+
+        background: $brand-primary;
+    }
+    .keyboard-container
+    {
+        position: absolute;
+        bottom: 0;
+
+        height: 25%;
+        //min-height: $min-height-span;
+
+        background: white;
+        border-top: $gray 1px solid;
+    }
+}
+
+// Variables
+$sidebar-width: 360px;
+
+// Responsive layout
+$screen-width-sm: 768px;
+$screen-width-md: 940px;
+$screen-width-lg: 1200px;
+$screen-height-sm: 768px;
+$screen-height-md: 768px;
+$screen-height-lg: 768px;
+
+// Extra Small
+@media (min-width: 0)
+{
+    .sidebar-container
+    {
+        display: none;
+    }
+    .main-area-container
+    {
+        width: 100%;
+    }
+    .keyboard-container
+    {
+        width: 100%;
+    }
+}
+// Small Onwards
+@media (min-width: $screen-width-sm)
+{
+    $temp-sidebar-width: $sidebar-width * (0.70);
+
+    .sidebar-container
+    {
+        display: block;
+        width: $temp-sidebar-width;
+    }
+    .main-area-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+    .keyboard-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+}
+// Medium Onwards
+@media (min-width: $screen-width-md)
+{
+    $temp-sidebar-width: $sidebar-width * (0.85);
+
+    .sidebar-container
+    {
+        display: block;
+        width: $temp-sidebar-width;
+    }
+    .main-area-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+    .keyboard-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+}
+// Large Onwards
+@media (min-width: $screen-width-lg)
+{
+    $temp-sidebar-width: $sidebar-width * (1.0);
+
+    .sidebar-container
+    {
+        display: block;
+        width: $temp-sidebar-width;
+    }
+    .main-area-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+    .keyboard-container
+    {
+        width: calc(100% - #{$temp-sidebar-width});
+    }
+}
