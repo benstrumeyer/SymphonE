@@ -1,5 +1,6 @@
-$min-width-span: (1920/4) + px;
-$min-height-span: (1080/4) + px;
+// Variables
+$sidebar-width: 360px;
+$keyboard-height: 240px;
 
 .home-container
 {
@@ -12,11 +13,9 @@ $min-height-span: (1080/4) + px;
     .sidebar-container
     {
         position: absolute;
-        top: 0;
         right: 0;
-        bottom: 0;
 
-        //min-width: $min-width-span;
+        height: 100%;
 
         background: white;
         border-left: $gray 1px solid;
@@ -26,6 +25,8 @@ $min-height-span: (1080/4) + px;
         position: absolute;
         left: 0;
 
+        height: calc(100% - #{$keyboard-height});
+
         background: $brand-primary;
     }
     .keyboard-container
@@ -33,16 +34,12 @@ $min-height-span: (1080/4) + px;
         position: absolute;
         bottom: 0;
 
-        height: 25%;
-        //min-height: $min-height-span;
+        height: $keyboard-height;
 
         background: white;
         border-top: $gray 1px solid;
     }
 }
-
-// Variables
-$sidebar-width: 360px;
 
 // Responsive layout
 $screen-width-sm: 768px;
@@ -52,7 +49,7 @@ $screen-height-sm: 768px;
 $screen-height-md: 768px;
 $screen-height-lg: 768px;
 
-// Extra Small
+// Extra Small Onwards
 @media (min-width: 0)
 {
     .sidebar-container
