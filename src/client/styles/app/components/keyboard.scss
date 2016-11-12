@@ -1,0 +1,73 @@
+.keyboard-container
+{
+    $octave-width: 380px;
+    $white-key-width: $octave-width / 7;
+
+    $black-key-width: $octave-width / 12;
+
+    height: 100%;
+
+    .octave-container
+    {
+        position: relative;
+
+        width: $octave-width;
+        height: 100%;
+
+        .white-keys-layer
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            .white-key
+            {
+                float: left;
+
+                height: 100%;
+                width: $white-key-width;
+
+                border-left: $gray 1px solid;
+                border-right: $gray 1px solid;
+            }
+        }
+        .black-keys-layer
+        {
+            position: absolute;
+            width: 100%;
+            height: 70%;
+
+            .black-key
+            {
+                float: left;
+
+                height: 100%;
+                width: $black-key-width + 4;
+
+                background: $gray-darker;
+
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+
+                border-bottom: transparentize($gray-base, 0.2) 6px solid;
+                border-left: transparentize($gray-lighter, 0.8) 3px solid;
+                border-right: transparentize($gray-lighter, 0.8) 3px solid;
+
+                &:nth-child(1)
+                {
+                    margin-left: $black-key-width + 2.5;
+                }
+                &:nth-child(2),
+                &:nth-child(4),
+                &:nth-child(5)
+                {
+                    margin-left: $black-key-width - 7;
+                }
+                &:nth-child(3)
+                {
+                    margin-left: $black-key-width * 2;
+                }
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ $keyboard-height: 240px;
     right: 0;
     bottom: 0;
 
-    .sidebar-container
+    .sidebar-area-container
     {
         position: absolute;
         right: 0;
@@ -29,7 +29,7 @@ $keyboard-height: 240px;
 
         background: $brand-primary;
     }
-    .keyboard-container
+    .keyboard-area-container
     {
         position: absolute;
         bottom: 0;
@@ -52,7 +52,7 @@ $screen-height-lg: 768px;
 // Extra Small Onwards
 @media (min-width: 0)
 {
-    .sidebar-container
+    .sidebar-area-container
     {
         display: none;
     }
@@ -60,7 +60,7 @@ $screen-height-lg: 768px;
     {
         width: 100%;
     }
-    .keyboard-container
+    .keyboard-area-container
     {
         width: 100%;
     }
@@ -70,7 +70,7 @@ $screen-height-lg: 768px;
 {
     $temp-sidebar-width: $sidebar-width * (0.70);
 
-    .sidebar-container
+    .sidebar-area-container
     {
         display: block;
         width: $temp-sidebar-width;
@@ -79,7 +79,7 @@ $screen-height-lg: 768px;
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
-    .keyboard-container
+    .keyboard-area-container
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
@@ -89,7 +89,7 @@ $screen-height-lg: 768px;
 {
     $temp-sidebar-width: $sidebar-width * (0.85);
 
-    .sidebar-container
+    .sidebar-area-container
     {
         display: block;
         width: $temp-sidebar-width;
@@ -98,7 +98,7 @@ $screen-height-lg: 768px;
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
-    .keyboard-container
+    .keyboard-area-container
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
@@ -108,7 +108,7 @@ $screen-height-lg: 768px;
 {
     $temp-sidebar-width: $sidebar-width * (1.0);
 
-    .sidebar-container
+    .sidebar-area-container
     {
         display: block;
         width: $temp-sidebar-width;
@@ -117,7 +117,7 @@ $screen-height-lg: 768px;
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
-    .keyboard-container
+    .keyboard-area-container
     {
         width: calc(100% - #{$temp-sidebar-width});
     }
