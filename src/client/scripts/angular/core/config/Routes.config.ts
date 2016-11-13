@@ -1,7 +1,7 @@
 import {AngularApp} from "../../AngularApp";
 
 // Configure Angular App Routes
-AngularApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider)
+AngularApp.config(function ($locationProvider)
 {
     $locationProvider.html5Mode(false);
 });

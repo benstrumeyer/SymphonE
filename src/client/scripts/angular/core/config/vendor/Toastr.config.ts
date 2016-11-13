@@ -1,10 +1,4 @@
-import {AngularApp} from "../../AngularApp";
-
-// HTTP Configuration, like cookie, JWT and error handling
-AngularApp.config(function ($httpProvider)
-{
-    $httpProvider.defaults.withCredentials = true;
-});
+import {AngularApp} from "../../../AngularApp";
 
 // Toastr configuration
 AngularApp.config(function (toastrConfig)
