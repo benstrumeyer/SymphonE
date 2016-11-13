@@ -1,7 +1,7 @@
 import {AngularApp} from "../../AngularApp";
 import {registerRoute} from "../../core/helpers/RoutingHelper";
 
-export class HomeController
+class HomeController
 {
 
 }

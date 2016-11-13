@@ -1,6 +1,6 @@
 import {AngularApp} from "../../AngularApp";
 
-export class KeyboardController
+class KeyboardController
 {
 
 }

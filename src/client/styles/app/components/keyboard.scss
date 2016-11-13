@@ -35,7 +35,7 @@
                 border-left: $gray 1px solid;
                 border-right: $gray 1px solid;
 
-                &:active
+                &.pressed
                 {
                     background: linear-gradient(to top, $gray-light 0%, white 100%);
                 }
@@ -84,7 +84,7 @@
                     margin-left: $black-key-width * 2;
                 }
 
-                &:active
+                &.pressed
                 {
                     background: darken($gray-darker, 10%);
                 }

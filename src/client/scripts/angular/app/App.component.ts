@@ -1,6 +1,6 @@
 import {AngularApp} from "../AngularApp";
 
-export class AppController
+class AppController
 {
 
 }
