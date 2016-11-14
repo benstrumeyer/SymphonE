@@ -1,8 +1,8 @@
 import * as express from "express";
 
 import {CONFIG} from "./config/Config";
-import {Bootstrap} from "./config/Bootstrap";
 import {LOGGER} from "./helpers/Logger";
+import {Bootstrap} from "./config/Bootstrap";
 
 var app = express();
 

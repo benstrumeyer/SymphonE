@@ -16,7 +16,7 @@ export class Bootstrap
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({extended: true}));
 
-        // Connect to RethinkDB
+        // Connect to ArangoDB
         await DatabaseBootstrapper.init();
 
         // Setup authentication
