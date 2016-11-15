@@ -1,0 +1,47 @@
+<div class="clearfix">
+    <h2>Sign Up</h2>
+    <hr>
+
+    <form class="form-horizontal clearfix col-xs-8 col-xs-offset-2" ng-submit="$ctrl.register()" novalidate>
+        <div class="form-group">
+            <label for="firstName" class="required">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                   ng-model="$ctrl.user.firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="required">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                   ng-model="$ctrl.user.lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="username" class="required">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username (e.g. deadgorilla019)"
+                   ng-model="$ctrl.user.username" required>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"
+                   ng-model="$ctrl.user.email" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="required">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                   ng-model="$ctrl.user.password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-block btn-primary">
+                <span class="fa fa-lg fa-sign-in"></span>
+                Sign Up
+            </button>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <div class="h4">
+                    <a ui-sref="loginState">Already have an account? Log in.</a>
+                </div>
+            </div>
+        </div>
+        <br>
+    </form>
+</div>
