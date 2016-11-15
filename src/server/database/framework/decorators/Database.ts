@@ -7,5 +7,5 @@ export function Database(config: IDatabaseConfig): ClassDecorator
     return function (constructor: { new(): DatabaseContext})
     {
         constructor.prototype.__dbConfig = new DatabaseConfig(config);
-    }
+    } as ClassDecorator;
 }
