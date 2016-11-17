@@ -9,4 +9,3 @@ AngularApp.component("appComponent", {
     controller: AppController,
     template: require("./App.template.html")
 });
-

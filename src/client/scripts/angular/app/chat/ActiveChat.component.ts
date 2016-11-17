@@ -4,7 +4,7 @@ class ActiveChatController{
 
 }
 
-AngularApp.component("homeComponent", {
+AngularApp.component("activeChatComponent", {
     controller: ActiveChatController,
     template: require("./ActiveChat.template.html")
 });
