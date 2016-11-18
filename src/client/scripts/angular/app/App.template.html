@@ -1,3 +1,25 @@
-<div class="container-fluid">
-    <div ui-view></div>
+<!-- Navbar -->
+<navbar-component></navbar-component>
+
+<!-- Main content area-->
+<div class="app-container">
+
+    <!-- Sidebar Area -->
+    <div class="sidebar-area-container">
+        <div class="text-center">
+            <h2>Chat Area</h2>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-area-container">
+        <!-- Router View -->
+        <div ui-view></div>
+    </div>
+
+    <!-- Keyboard Area -->
+    <div class="keyboard-area-container">
+        <keyboard-component></keyboard-component>
+    </div>
+
 </div>

@@ -40,47 +40,6 @@ h1, h2, h3, h4, h5, h6
     //text-shadow: $gray-dark 0 0 4px;
 }
 /*
-    Layout Objects
---------------------------------------------------- */
-#content-container
-{
-    background: white;
-    padding: 80px 0 30px;
-
-    overflow: hidden;
-
-    box-shadow: white 0 0 80px 120px;
-}
-.container-fluid
-{
-    padding: 0;
-}
-@media (min-width: $screen-xs-min) {
-    .container-fluid
-    {
-        padding: 0;
-        margin: 0;
-    }
-}
-@media (min-width: $screen-md-min) {
-    .container-fluid
-    {
-        margin: 0 2.5%;
-    }
-}
-@media (min-width: $screen-lg-min) {
-    .container-fluid
-    {
-        margin: 0 5%;
-    }
-}
-#footer-container
-{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 15px;
-}
-/*
     Form validation classes
 --------------------------------------------------- */
 label.required::after

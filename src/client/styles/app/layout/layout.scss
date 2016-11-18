@@ -2,10 +2,10 @@
 $sidebar-width: 360px;
 $keyboard-height: 200px;
 
-.home-container
+.app-container
 {
     position: absolute;
-    top: 0;
+    top: $navbar-height;
     left: 0;
     right: 0;
     bottom: 0;
