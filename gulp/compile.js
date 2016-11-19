@@ -6,6 +6,9 @@ const merge = require("merge-stream");
 
 module.exports = function (gulp, plugins, paths, project)
 {
+    const tsServer = createTsProject(paths.server + "/tsconfig.json");
+    const tsApp = createTsProject(paths.app + "/tsconfig.json");
+    
     // Compile everything
     gulp.task("compile", ["compile-server", "compile-client"]);
     
@@ -13,9 +16,10 @@ module.exports = function (gulp, plugins, paths, project)
     gulp.task("compile-server", function ()
     {
         var serverDest = paths.build + "/server/";
-        var tsConfigPath = paths.server + "/tsconfig.json";
-        
-        var tsTask = compileWithTsConfig(tsConfigPath)
+                        
+        var tsTask = tsServer.src()
+            .pipe(plugins.changed(serverDest, {extension: ".js"}))
+            .pipe(tsServer()).js
             .pipe(plugins.debug({title: "[server] compiled:"}))
             .pipe(gulp.dest(serverDest));
         
@@ -35,15 +39,16 @@ module.exports = function (gulp, plugins, paths, project)
     gulp.task("compile-app", function (callback)
     {
         var appDest = paths.build + "/app/";
-        var tsConfigPath = paths.client + "/tsconfig.json";
-
-        var tsTask = compileWithTsConfig(tsConfigPath)
+    
+        var tsTask = tsApp.src()
+            .pipe(plugins.cache("app"))
+            .pipe(tsApp()).js
             .pipe(plugins.debug({title: "[app] compiled:"}))
             .pipe(gulp.dest(appDest));
         
         var filesToCopy = [
-            `${paths.client}/**/*`,
-            `!${paths.server}/**/*.ts`,
+            `${paths.app}/**/*`,
+            `!${paths.app}/**/*.ts`,
             paths.packageJson
         ];
         
@@ -74,16 +79,9 @@ module.exports = function (gulp, plugins, paths, project)
     });
     
     /* Helpers */
-    function compileWithTsConfig(configPath)
+    function createTsProject(configPath)
     {
-        var tsProject = plugins.typescript
-            .createProject(configPath, {
-                typescript: typescript
-            });
-        
-        var tsResult = tsProject.src()
-            .pipe(plugins.typescript(tsProject));
-        
-        return tsResult.js;
+        return plugins.typescript
+            .createProject(configPath, {typescript: typescript});
     }
 };

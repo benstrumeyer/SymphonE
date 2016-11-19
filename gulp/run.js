@@ -4,7 +4,7 @@ const WebpackDevServer = require("webpack-dev-server");
 
 module.exports = function (gulp, plugins, paths, project)
 {
-    gulp.task("run-server", ["compile-server"], function (callback)
+    gulp.task("run-server", ["compile-server", "watch-server"], function ()
     {
         var serverPath = paths.build + "/server";
         
@@ -21,10 +21,10 @@ module.exports = function (gulp, plugins, paths, project)
         // Add hot code plugins to config
         webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
         webpackConfig.plugins.push(new webpack.NoErrorsPlugin());
-    
+        
         var host = "localhost";
         var port = project.config.ports.client;
-    
+        
         var serverOptions = {
             contentBase: paths.build + "/client/",
             inline: true,
@@ -40,7 +40,7 @@ module.exports = function (gulp, plugins, paths, project)
         {
             if (err)
                 throw new plugins.util.PluginError("webpack", err);
-    
+            
             // Start dev server
             new WebpackDevServer(compiler, serverOptions)
                 .listen(port, function (err)

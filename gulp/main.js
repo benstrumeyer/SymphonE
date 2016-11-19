@@ -15,6 +15,7 @@ paths.build = path.join(paths.root, "build");
 paths.deploy = path.join(paths.root, "deploy");
 paths.src = path.join(paths.root, "src");
 
+paths.app = path.join(paths.src, "app");
 paths.client = path.join(paths.src, "client");
 paths.server = path.join(paths.src, "server");
 
@@ -33,4 +34,5 @@ gulp.task("default", ["deploy"]);
 require("./compile")(gulp, plugins, paths, project);
 require("./build")(gulp, plugins, paths, project);
 require("./run")(gulp, plugins, paths, project);
+require("./watch")(gulp, plugins, paths, project);
 
