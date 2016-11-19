@@ -7,16 +7,16 @@ const path = require("path");
 var paths = {};
 
 paths.root = path.join(__dirname, "..");
+paths.packageJson = path.join(paths.root, "package.json");
 paths.projectJson = path.join(paths.root, "project.json");
 paths.nodeModules = path.join(paths.root, "node_modules");
-paths.jspmPackages = path.join(paths.root, "jspm_packages");
 
 paths.build = path.join(paths.root, "build");
 paths.deploy = path.join(paths.root, "deploy");
-paths.project = path.join(paths.root, "src");
+paths.src = path.join(paths.root, "src");
 
-paths.client = path.join(paths.project, "client");
-paths.server = path.join(paths.project, "server");
+paths.client = path.join(paths.src, "client");
+paths.server = path.join(paths.src, "server");
 
 paths.public = path.join(paths.client, "__public");
 paths.scripts = path.join(paths.client, "scripts");

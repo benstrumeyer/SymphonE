@@ -27,7 +27,7 @@ module.exports = function(gulp, plugins, paths, project)
         var packageJson = gulp.src(paths.root + "/package.json")
             .pipe(plugins.debug({title: "package.json:"}))
             .pipe(plugins.jsonEditor({
-                name: project.meta.project,
+                name: project.meta.src,
                 version: project.meta.version,
                 description: project.meta.description,
                 copyright: project.meta.copyright,
