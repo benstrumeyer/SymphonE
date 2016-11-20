@@ -1,16 +1,16 @@
 ﻿/* Variables */
 @import "app/variables";
 @import "app/mixins";
-@import "~bootswatch/cosmo/_variables";
+@import "bootswatch/cosmo/_variables.scss";
 
 /* Bootstrap */
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 /* Bootswatch Style */
-@import "~bootswatch/cosmo/_bootswatch";
+@import "bootswatch/cosmo/_bootswatch.scss";
 
 /* Libraries */
-@import "~font-awesome/scss/font-awesome";
+@import "font-awesome/scss/font-awesome.scss";
 
 /* App Specific Styles */
 @import "app/elements";
