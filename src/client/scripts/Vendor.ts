@@ -1,6 +1,3 @@
-// TODO: NOTE: Node typings have to be manually referenced. I think it's a bug in webpack.
-/// <reference path="../../../node_modules/@types/node/index.d.ts" />;
-
 // Jquery
 import jQuery = require("jquery");
 

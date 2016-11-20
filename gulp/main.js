@@ -15,14 +15,11 @@ paths.build = path.join(paths.root, "build");
 paths.deploy = path.join(paths.root, "deploy");
 paths.src = path.join(paths.root, "src");
 
-paths.app = path.join(paths.src, "app");
 paths.client = path.join(paths.src, "client");
 paths.server = path.join(paths.src, "server");
 
-paths.public = path.join(paths.client, "__public");
 paths.scripts = path.join(paths.client, "scripts");
 paths.styles = path.join(paths.client, "styles");
-paths.lib = path.join(paths.client, "lib");
 
 // Global Package Info
 var project = require(paths.projectJson);

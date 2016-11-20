@@ -1,13 +1,12 @@
 const path = require("path");
 const typescript = require("typescript");
-const webpack = require("webpack");
-
+const sassModuleImporter = require("sass-module-importer");
 const merge = require("merge-stream");
 
 module.exports = function (gulp, plugins, paths, project)
 {
     const tsServer = createTsProject(paths.server + "/tsconfig.json");
-    const tsApp = createTsProject(paths.app + "/tsconfig.json");
+    const tsClient = createTsProject(paths.client + "/tsconfig.json");
     
     // Compile everything
     gulp.task("compile", ["compile-server", "compile-client"]);
@@ -16,7 +15,7 @@ module.exports = function (gulp, plugins, paths, project)
     gulp.task("compile-server", function ()
     {
         var serverDest = paths.build + "/server/";
-                        
+        
         var tsTask = tsServer.src()
             .pipe(plugins.changed(serverDest, {extension: ".js"}))
             .pipe(tsServer()).js
@@ -35,47 +34,39 @@ module.exports = function (gulp, plugins, paths, project)
         return merge(copyTask, tsTask);
     });
     
-    // Compile App files
-    gulp.task("compile-app", function (callback)
+    // Compile Client files
+    gulp.task("compile-client", function ()
     {
-        var appDest = paths.build + "/app/";
-    
-        var tsTask = tsApp.src()
-            .pipe(plugins.cache("app"))
-            .pipe(tsApp()).js
-            .pipe(plugins.debug({title: "[app] compiled:"}))
-            .pipe(gulp.dest(appDest));
+        var clientDest = paths.build + "/client/";
+        
+        // Typescript
+        var tsTask = tsClient.src()
+            .pipe(plugins.changed(clientDest, {extension: ".js"}))
+            .pipe(tsClient()).js
+            .pipe(plugins.ngAnnotate())
+            .pipe(plugins.debug({title: "[client] scripts:"}))
+            .pipe(gulp.dest(clientDest));
+        
+        // SASS
+        var sassTask = gulp.src(paths.styles + "/main.scss")
+            .pipe(plugins.sassGlob())
+            .pipe(plugins.sass({importer: sassModuleImporter()}).on('error', plugins.sass.logError))
+            .pipe(plugins.debug({title: "[client] styles:"}))
+            .pipe(gulp.dest(clientDest + "/styles"));
         
         var filesToCopy = [
-            `${paths.app}/**/*`,
-            `!${paths.app}/**/*.ts`,
+            `${paths.client}/**/*.*`,
+            `!${paths.client}/**/*.ts`,
+            `!${paths.client}/**/*.scss`,
             paths.packageJson
         ];
         
+        // Copy Task
         var copyTask = gulp.src(filesToCopy)
-            .pipe(gulp.dest(appDest));
+            .pipe(plugins.debug({title: "[client] copied:"}))
+            .pipe(gulp.dest(clientDest));
         
-        return merge(copyTask, tsTask);
-    });
-    
-    // Compile Client files
-    gulp.task("compile-client", function (callback)
-    {
-        var webpackConfig = require(path.join(paths.root, "webpack.config"));
-        
-        // Add optimization plugins to config
-        // webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
-        // webpackConfig.plugins.push(new webpack.optimize.DedupePlugin());
-        
-        webpack(webpackConfig, function (err, stats)
-        {
-            if (err)
-                throw new plugins.util.PluginError("webpack", err);
-            
-            plugins.util.log("[webpack]", stats.toString({colors: true}));
-            
-            callback();
-        });
+        return merge(copyTask, tsTask, sassTask);
     });
     
     /* Helpers */

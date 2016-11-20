@@ -78,10 +78,12 @@
     "gulp-json-editor": "^2.2.1",
     "gulp-jspm": "^0.5.13",
     "gulp-load-plugins": "^1.2.0",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-nodemon": "^2.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-run": "^1.6.12",
+    "gulp-run-electron": "^3.0.1",
     "gulp-sass": "^2.3.2",
     "gulp-sass-glob": "^1.0.6",
     "gulp-sourcemaps": "^1.6.0",
@@ -100,6 +102,7 @@
     "raw-loader": "^0.5.1",
     "run-sequence": "^1.1.5",
     "sass-loader": "^4.0.2",
+    "sass-module-importer": "^1.4.0",
     "streamqueue": "^1.1.1",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
@@ -108,6 +111,7 @@
     "webpack-dev-server": "^1.16.0",
     "webpack-node-externals": "^1.4.3"
   },
+  "main": "ElectronApp.js",
   "scripts": {
     "build": "npm run gulp build",
     "start": "(npm run start-server) && (npm run start-client)",
