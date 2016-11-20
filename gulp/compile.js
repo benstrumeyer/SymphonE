@@ -38,6 +38,7 @@ module.exports = function (gulp, plugins, paths, project)
     gulp.task("compile-client", function ()
     {
         var clientDest = paths.build + "/client/";
+        var stylesDest = clientDest + "/styles/";
         
         // Typescript
         var tsTask = tsClient.src()
@@ -49,10 +50,11 @@ module.exports = function (gulp, plugins, paths, project)
         
         // SASS
         var sassTask = gulp.src(paths.styles + "/main.scss")
+            .pipe(plugins.changed(stylesDest, {extension: ".css"}))
             .pipe(plugins.sassGlob())
             .pipe(plugins.sass({importer: sassModuleImporter()}).on('error', plugins.sass.logError))
             .pipe(plugins.debug({title: "[client] styles:"}))
-            .pipe(gulp.dest(clientDest + "/styles"));
+            .pipe(gulp.dest(stylesDest));
         
         var filesToCopy = [
             `${paths.client}/**/*.*`,
@@ -63,6 +65,7 @@ module.exports = function (gulp, plugins, paths, project)
         
         // Copy Task
         var copyTask = gulp.src(filesToCopy)
+            .pipe(plugins.changed(clientDest))
             .pipe(plugins.debug({title: "[client] copied:"}))
             .pipe(gulp.dest(clientDest));
         
