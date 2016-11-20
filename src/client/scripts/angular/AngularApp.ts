@@ -6,7 +6,7 @@ angular.module("AngularApp", [
     "ngAnimate",
     "ngMessages",
     "ui.router",
-    // "ui.bootstrap",
+    "ui.bootstrap",
     "toastr"
 ]);
 

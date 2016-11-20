@@ -17,7 +17,7 @@ import "angular";
 import "angular-sanitize";
 import "angular-messages";
 import "angular-animate";
-// import "angular-ui-bootstrap";
+import "angular-ui-bootstrap";
 import "angular-ui-router";
 import "angular-toastr";
 

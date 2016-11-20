@@ -12,9 +12,11 @@
         <!-- Main Styles -->
         <link rel="stylesheet" href="styles/main.css">
 
-        <!-- Main Script Bundles -->
-        <script src="scripts/Vendor.js"></script>
-        <script src="scripts/angular/AngularApp.js"></script>
+        <!-- Main Script -->
+        <script>
+            require("./scripts/Vendor");
+            require("./scripts/angular/AngularApp");
+        </script>
     </head>
     <body>
         <electron-app-component></electron-app-component>
