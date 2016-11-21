@@ -48,6 +48,7 @@
     "@types/electron": "^1.4.27",
     "@types/express": "^4.0.33",
     "@types/express-session": "0.0.32",
+    "@types/glob": "^5.0.30",
     "@types/jquery": "^2.0.32",
     "@types/jsonwebtoken": "^7.1.32",
     "@types/lodash": "^4.14.36",
